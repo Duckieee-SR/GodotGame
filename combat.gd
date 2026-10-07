@@ -12,18 +12,26 @@ const CHARGE_PER_TILE := 7.0
 const ULT_COST   := 100.0
 const ULT_DAMAGE := 45
 
+var enemy_data: EnemyData
+var enemy := {} # estado runtime (hp, shield, charge etc.)
+
 var player := {
 	"hp": 120, "max_hp": 120,
 	"shield": 0,
 	"charge": 0.0,
 }
 
-var enemy := {
-	"name": "Goblin Ancião",
-	"hp": 160, "max_hp": 160,
-	"armor": 1,      # reduz dano físico POR peça
-	"atk": 16,
-}
+func setup_enemy(data: EnemyData) -> void:
+	enemy_data = data
+	enemy = {
+		"hp": data.max_hp,
+		"max_hp": data.max_hp,
+		"armor": data.armor,
+		"atk": data.base_attack,
+		"charging": false,
+		"pattern_index": 0,
+	}
+	changed.emit()
 
 func reset_turn() -> void:
 	player.shield = 0

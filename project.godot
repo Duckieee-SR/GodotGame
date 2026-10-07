@@ -12,8 +12,8 @@ config_version=5
 
 config/name="projectT"
 run/main_scene="uid://yyllb4uurhb2"
-config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.7", "Mobile")
+config/icon="res://Sprites/icon.svg"
 
 [input]
 
