@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://yyllb4uurhb2"]
+
+[ext_resource type="Script" uid="uid://ojqajspcgnno" path="res://batle.gd" id="1_lul25"]
+[ext_resource type="Script" uid="uid://cecji5qh6ub1" path="res://board.gd" id="2_yh5fh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e2goh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e48gw"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = SubResource("CanvasTexture_e2goh")
+
+[node name="Battle" type="Node2D" unique_id=846699218]
+script = ExtResource("1_lul25")
+
+[node name="Board" type="Node2D" parent="." unique_id=565012005]
+position = Vector2(40, 90)
+script = ExtResource("2_yh5fh")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1749983031]
+
+[node name="PlayerHP" type="ProgressBar" parent="UI" unique_id=56271735]
+self_modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(0, 10)
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 300.0
+offset_bottom = 47.0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_styles/fill = SubResource("StyleBoxTexture_e48gw")
+value = 100.0
+
+[node name="PlayerInfo" type="Label" parent="UI" unique_id=1562216035]
+offset_left = 40.0
+offset_top = 44.0
+offset_right = 41.0
+offset_bottom = 67.0
+text = "Player"
+
+[node name="ChargeBar" type="ProgressBar" parent="UI" unique_id=1106633455]
+self_modulate = Color(0, 0, 1, 1)
+custom_minimum_size = Vector2(0, 10)
+offset_left = 40.0
+offset_top = 62.0
+offset_right = 300.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+
+[node name="EnemyHP" type="ProgressBar" parent="UI" unique_id=2005204089]
+self_modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(0, 22)
+offset_left = 700.0
+offset_top = 20.0
+offset_right = 960.0
+offset_bottom = 47.0
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+value = 100.0
+
+[node name="EnemyInfo" type="Label" parent="UI" unique_id=1269814792]
+offset_left = 700.0
+offset_top = 44.0
+offset_right = 701.0
+offset_bottom = 67.0
+text = "Enimigo"
+
+[node name="Log" type="RichTextLabel" parent="UI" unique_id=547069429]
+offset_left = 40.0
+offset_top = 560.0
+offset_right = 940.0
+offset_bottom = 680.0
+bbcode_enabled = true
+
+[node name="UltButton" type="Button" parent="UI" unique_id=963706325]
+offset_left = 990.0
+offset_top = 60.0
+offset_right = 998.0
+offset_bottom = 68.0
+text = "Ultimate"
