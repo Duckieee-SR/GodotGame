@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://chgxhgci83d0c"]
+
+[ext_resource type="Script" uid="uid://ruyrlci8f5xw" path="res://Scripts/enemy_data.gd" id="1_pcekj"]
+[ext_resource type="Texture2D" uid="uid://cj0p8aqjcu6py" path="res://Sprites/SlimeB.png" id="2_3gobb"]
+
+[resource]
+script = ExtResource("1_pcekj")
+sprite = ExtResource("2_3gobb")
+max_hp = 25
+base_attack = 5
+pattern = ["charge", "defend", "charged_attack"]
+gold_reward_min = 5.0
+gold_reward_max = 15.0
+xp_reward = 15
+charge_multiplier = 1.35
+metadata/_custom_type_script = "uid://ruyrlci8f5xw"

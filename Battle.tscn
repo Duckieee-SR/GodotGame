@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yyllb4uurhb2"]
 
-[ext_resource type="Script" uid="uid://ojqajspcgnno" path="res://batle.gd" id="1_lul25"]
-[ext_resource type="Script" uid="uid://cecji5qh6ub1" path="res://board.gd" id="2_yh5fh"]
+[ext_resource type="Script" uid="uid://ojqajspcgnno" path="res://Scripts/battle.gd" id="1_lul25"]
+[ext_resource type="Script" uid="uid://cecji5qh6ub1" path="res://Scripts/board.gd" id="2_yh5fh"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e2goh"]
 
@@ -14,6 +14,14 @@ texture = SubResource("CanvasTexture_e2goh")
 
 [node name="Battle" type="Node2D" unique_id=846699218]
 script = ExtResource("1_lul25")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1293019626]
+position = Vector2(40, 20)
+
+[node name="Arena" type="Node2D" parent="." unique_id=1932179521]
+position = Vector2(40, 20)
+
+[node name="Enemy" type="Sprite2D" parent="Arena" unique_id=258177368]
 
 [node name="Board" type="Node2D" parent="." unique_id=565012005]
 position = Vector2(40, 90)
@@ -69,9 +77,9 @@ text = "Enimigo"
 
 [node name="Log" type="RichTextLabel" parent="UI" unique_id=547069429]
 offset_left = 40.0
-offset_top = 560.0
+offset_top = 503.0
 offset_right = 940.0
-offset_bottom = 680.0
+offset_bottom = 623.0
 bbcode_enabled = true
 
 [node name="UltButton" type="Button" parent="UI" unique_id=963706325]

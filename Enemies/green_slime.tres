@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c7x0f3s4hhsdl"]
 
-[ext_resource type="Script" uid="uid://ruyrlci8f5xw" path="res://enemy_data.gd" id="1_1av0k"]
+[ext_resource type="Script" uid="uid://ruyrlci8f5xw" path="res://Scripts/enemy_data.gd" id="1_1av0k"]
 [ext_resource type="Texture2D" uid="uid://ccwqjg74nxwgb" path="res://Sprites/SlimeA.png" id="2_c3w83"]
 
 [resource]
@@ -10,7 +10,7 @@ display_name = "GreenSlime"
 sprite = ExtResource("2_c3w83")
 max_hp = 20
 base_attack = 3
-pattern = ["attack", "breathe", "attack"]
+pattern = ["attack", "defend"]
 gold_reward_min = 3.0
 charge_multiplier = 0.0
 metadata/_custom_type_script = "uid://ruyrlci8f5xw"

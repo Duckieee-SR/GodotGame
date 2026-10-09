@@ -78,18 +78,44 @@ func apply_tally(tally: Dictionary, cascade: int) -> void:
 	message.emit(prefix + body)
 	changed.emit()
 
-func enemy_attack() -> void:
-	var dmg: int = enemy.atk
+func enemy_take_turn() -> void:
+	if enemy.hp <= 0:
+		return
+
+	var action: String = enemy_data.pattern[enemy.pattern_index]
+	enemy.pattern_index = (enemy.pattern_index + 1) % enemy_data.pattern.size()
+
+	match action:
+		"attack":
+			_deal_damage_to_player(enemy.atk)
+			message.emit("%s ataca: %d de dano" % [enemy_data.display_name, enemy.atk])
+
+		"defend":
+			enemy["armor"] += 2
+			message.emit("%s se protege (+2 armadura)" % enemy_data.display_name)
+
+		"charge":
+			enemy["charging"] = true
+			message.emit("%s está carregando algo..." % enemy_data.display_name)
+
+		"charged_attack":
+			var dmg := int(enemy.atk * enemy_data.charge_multiplier)
+			_deal_damage_to_player(dmg)
+			enemy["charging"] = false
+			message.emit("%s SOLTA UM ATAQUE PESADO: %d!" % [enemy_data.display_name, dmg])
+
+		_:
+			# fallback: ação desconhecida = ataque normal
+			_deal_damage_to_player(enemy.atk)
+			message.emit("%s ataca: %d de dano" % [enemy_data.display_name, enemy.atk])
+
+	changed.emit()
+	
+func _deal_damage_to_player(dmg: int) -> void:
 	var absorbed: int = mini(player.shield, dmg)
 	player.shield -= absorbed
 	dmg -= absorbed
 	player.hp = maxi(0, player.hp - dmg)
-
-	var txt := "%s ataca: %d de dano" % [enemy.name, dmg]
-	if absorbed > 0:
-		txt += " (%d absorvido)" % absorbed
-	message.emit(txt)
-	changed.emit()
 
 func can_ultimate() -> bool:
 	return player.charge >= ULT_COST

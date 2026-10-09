@@ -14,8 +14,8 @@ var random_gold_reward = rng.randf_range(gold_reward_min, 10.0)
 @export var base_attack: int = 10
 
 @export_group("Comportamento")
-## Ciclo de ações. Ações válidas: attack, defend, charge, breathe
-@export var pattern: PackedStringArray = ["attack", "attack"]
+## Ciclo de ações. Ações válidas: attack, defend, charge, charged_attack
+@export var pattern: PackedStringArray = []
 
 @export_group("Recompensas")
 @export var gold_reward_min: float = 1

@@ -7,8 +7,8 @@ signal board_settled()
 enum T { ATTACK, DEFENSE, MAGIC, HEAL, CHARGE }
 
 const TYPE_COUNT := 5
-const COLS := 7
-const ROWS := 7
+const COLS := 12
+const ROWS := 6
 const TILE_SIZE := 64.0
 const SWAP_TIME := 0.15
 const FALL_TIME := 0.16
