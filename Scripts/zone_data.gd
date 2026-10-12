@@ -1,8 +1,8 @@
 class_name ZoneData
 extends Resource
 
-@export var zone_id: String = "floresta"
-@export var display_name: String = "Floresta Sombria"
+@export var zone_id: String 
+@export var display_name: String 
 
 @export_group("Visual")
 @export var background: Texture2D
@@ -12,7 +12,7 @@ extends Resource
 @export_group("Encontros")
 ## Quantos inimigos no máximo nessa zona (1 a 5)
 @export_range(1, 5) var max_enemies: int = 3
-## Peso pra sair 1, 2, 3... inimigos (índice 0 = 1 inimigo)
+## Peso pra dar spawn a 1, 2, 3... inimigos (índice 0 = 1 inimigo)
 @export var count_weights: PackedFloat32Array = [50.0, 35.0, 15.0]
 ## Quem pode aparecer aqui
 @export var spawns: Array[SpawnEntry] = []
